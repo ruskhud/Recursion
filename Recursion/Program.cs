@@ -28,6 +28,18 @@ namespace Recursion
             static void AlternateCharCases(char[] word, int startIndex, List<string> result)
             {
                 //result.Add(new string(word));
+                //for(int i = startIndex; i < word.Length; i++)
+                //{
+                //    if (char.IsLetter(word[startIndex]))
+                //    {
+                //        word[startIndex] = char.ToUpper(word[startIndex]);
+                //        AlternateCharCases(word, startIndex + 1, result);
+                //        //result.Add(new string(word));
+                //        word[startIndex] = char.ToLower(word[startIndex]);
+                //        AlternateCharCases(word, startIndex + 1, result);
+                //        //result.Add(new string(word));
+                //    }
+                //}
 
                 if (startIndex == word.Length)
                 {
@@ -35,22 +47,22 @@ namespace Recursion
                     return;
                 }
 
-                
-                AlternateCharCases(word, startIndex + 1, result);
-
-                var subword = new char[word.Length];
-                subword = word.ToArray();
+                //var Newword = new char[word.Length];
+                //AlternateCharCases(word, startIndex + 1, result);
 
                 if (char.IsLetter(word[startIndex]))
                 {                    
                     word[startIndex] = char.ToUpper(word[startIndex]);
                     AlternateCharCases(word, startIndex + 1, result);
-                    //result.Add(new string(word));                    
+                    //result.Add(new string(word));
                     word[startIndex] = char.ToLower(word[startIndex]);
                     AlternateCharCases(word, startIndex + 1, result);
                     //result.Add(new string(word));
                 }
-
+                else
+                {
+                    AlternateCharCases(word, startIndex + 1, result);
+                }
 
                 //var index = Array.IndexOf(word, i, 0, position);
                 //result.Add(new string(word));
