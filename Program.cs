@@ -11,7 +11,7 @@ namespace Recursion
     {
         public static void Main()
         {
-            var input = "ab42";
+            var input = "straße";
             CaseAlternatorTask.AlternateCharCases(input);
         }
 
@@ -21,36 +21,20 @@ namespace Recursion
             public static List<string> AlternateCharCases(string lowercaseWord)
             {
                 var result = new List<string>();
-                AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);
+                AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);                
+                result.Sort();
                 return result;
             }
 
             static void AlternateCharCases(char[] word, int startIndex, List<string> result)
             {
-                //result.Add(new string(word));
-                //for(int i = startIndex; i < word.Length; i++)
-                //{
-                //    if (char.IsLetter(word[startIndex]))
-                //    {
-                //        word[startIndex] = char.ToUpper(word[startIndex]);
-                //        AlternateCharCases(word, startIndex + 1, result);
-                //        //result.Add(new string(word));
-                //        word[startIndex] = char.ToLower(word[startIndex]);
-                //        AlternateCharCases(word, startIndex + 1, result);
-                //        //result.Add(new string(word));
-                //    }
-                //}
-
                 if (startIndex == word.Length)
                 {
                     result.Add(new string(word));
                     return;
-                }
+                }                
 
-                //var Newword = new char[word.Length];
-                //AlternateCharCases(word, startIndex + 1, result);
-
-                if (char.IsLetter(word[startIndex]))
+                if (char.IsLetter(word[startIndex]) )
                 {                    
                     word[startIndex] = char.ToUpper(word[startIndex]);
                     AlternateCharCases(word, startIndex + 1, result);
@@ -62,80 +46,78 @@ namespace Recursion
                 else
                 {
                     AlternateCharCases(word, startIndex + 1, result);
-                }
-
-                //var index = Array.IndexOf(word, i, 0, position);
-                //result.Add(new string(word));
-                //AlternateCharCases(word, startIndex + 1, result);
-                
-                //result.Add(new string(word));
+                }                
             }
         }
     }
 }
-    
+//var index = Array.IndexOf(word, i, 0, position);
+//result.Add(new string(word));
+//AlternateCharCases(word, startIndex + 1, result);
+
+//result.Add(new string(word));
 
 
 
-        //public class Program
-        //{
-        //    public static void Main()
-        //    {
-        //        var input = "ab42";
-        //        CaseAlternatorTask.AlternateCharCases(input);
-        //    }
-        //}
+//public class Program
+//{
+//    public static void Main()
+//    {
+//        var input = "ab42";
+//        CaseAlternatorTask.AlternateCharCases(input);
+//    }
+//}
 
-        //public class CaseAlternatorTask
-        //{
-        //    //Вызывать будут этот метод
-        //    public static List<string> AlternateCharCases(string lowercaseWord)
-        //    {
-        //        var result = new List<string>();
-        //        AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);
-        //        return result;
-        //    }
+//public class CaseAlternatorTask
+//{
+//    //Вызывать будут этот метод
+//    public static List<string> AlternateCharCases(string lowercaseWord)
+//    {
+//        var result = new List<string>();
+//        AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);
+//        return result;
+//    }
 
-        //    static void AlternateCharCases(char[] word, int startIndex, List<string> result)
-        //    {
-        //        //result.Add(new string(word));
+//    static void AlternateCharCases(char[] word, int startIndex, List<string> result)
+//    {
+//        //result.Add(new string(word));
 
-        //        if (startIndex == word.Length)
-        //        {
-        //            result.Add(new string(word));
-        //            return;
-        //        }
+//        if (startIndex == word.Length)
+//        {
+//            result.Add(new string(word));
+//            return;
+//        }
 
-        //        var Newword = new char[word.Length];
-
-
-        //        if (char.IsLetter(word[startIndex]))
-        //        {
-        //            word[startIndex] = char.ToUpper(word[startIndex]);
-        //            result.Add(new string(word));
-        //        }
-
-        //        //var index = Array.IndexOf(word, i, 0, position);
-        //        //result.Add(new string(word));
-        //        AlternateCharCases(word, startIndex + 1, result);
-        //        // TODO Сделать надо здесь       
+//        var Newword = new char[word.Length];
 
 
+//        if (char.IsLetter(word[startIndex]))
+//        {
+//            word[startIndex] = char.ToUpper(word[startIndex]);
+//            result.Add(new string(word));
+//        }
 
-                //for (var i = 0; i < word.Length; i++)
-                //{
+//        //var index = Array.IndexOf(word, i, 0, position);
+//        //result.Add(new string(word));
+//        AlternateCharCases(word, startIndex + 1, result);
+//        // TODO Сделать надо здесь       
 
-                //    if (char.IsLetter(word[startIndex]))
-                //    {
-                //        word[startIndex] = char.ToUpper(word[startIndex]);
-                //        result.Add(new string (word));
-                //    }
 
-                //    //var index = Array.IndexOf(word, i, 0, position);
-                //    //result.Add(new string(word));
-                //    AlternateCharCases(word, startIndex + 1, result);
 
-                //}
+//for (var i = 0; i < word.Length; i++)
+//{
+
+//    if (char.IsLetter(word[startIndex]))
+//    {
+//        word[startIndex] = char.ToUpper(word[startIndex]);
+//        result.Add(new string (word));
+//    }
+
+//    //var index = Array.IndexOf(word, i, 0, position);
+//    //result.Add(new string(word));
+//    AlternateCharCases(word, startIndex + 1, result);
+
+//}
 
 
 
