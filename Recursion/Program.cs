@@ -21,9 +21,10 @@ namespace Recursion
             public static List<string> AlternateCharCases(string lowercaseWord)
             {
                 var result = new List<string>();
-                AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);                
-                result.Sort();
-                return result;
+                AlternateCharCases(lowercaseWord.ToCharArray(), 0, result);
+                var results = new List<string>(result.Distinct());
+                results.Sort();
+                return results;
             }
 
             static void AlternateCharCases(char[] word, int startIndex, List<string> result)
@@ -32,30 +33,24 @@ namespace Recursion
                 {
                     result.Add(new string(word));
                     return;
-                }                
+                }
 
-                if (char.IsLetter(word[startIndex]) )
-                {                    
+                if (char.IsLetter(word[startIndex]))
+                {
                     word[startIndex] = char.ToUpper(word[startIndex]);
-                    AlternateCharCases(word, startIndex + 1, result);
-                    //result.Add(new string(word));
+                    AlternateCharCases(word, startIndex + 1, result);                    
                     word[startIndex] = char.ToLower(word[startIndex]);
-                    AlternateCharCases(word, startIndex + 1, result);
-                    //result.Add(new string(word));
+                    AlternateCharCases(word, startIndex + 1, result);                    
                 }
                 else
                 {
                     AlternateCharCases(word, startIndex + 1, result);
-                }                
+                }
             }
         }
     }
 }
-//var index = Array.IndexOf(word, i, 0, position);
-//result.Add(new string(word));
-//AlternateCharCases(word, startIndex + 1, result);
 
-//result.Add(new string(word));
 
 
 
